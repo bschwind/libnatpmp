@@ -1,11 +1,9 @@
-/* $Id: getgateway.h,v 1.6 2012/03/05 19:38:37 nanard Exp $ */
+/* $Id: getgateway.h,v 1.7 2013/09/10 20:09:04 nanard Exp $ */
 /* libnatpmp
-Copyright (c) 2007-2011, Thomas BERNARD
+Copyright (c) 2007-2013, Thomas BERNARD
 All rights reserved.
-
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
-
     * Redistributions of source code must retain the above copyright notice,
       this list of conditions and the following disclaimer.
     * Redistributions in binary form must reproduce the above copyright notice,
@@ -13,7 +11,6 @@ modification, are permitted provided that the following conditions are met:
       and/or other materials provided with the distribution.
     * The name of the author may not be used to endorse or promote products
 	  derived from this software without specific prior written permission.
-
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -30,19 +27,18 @@ POSSIBILITY OF SUCH DAMAGE.
 #define __GETGATEWAY_H__
 
 #ifdef WIN32
-#if !defined(_MSC_VER)
+#if !defined(_MSC_VER) || _MSC_VER >= 1600
 #include <stdint.h>
 #else
 typedef unsigned long uint32_t;
 typedef unsigned short uint16_t;
 #endif
-//#define in_addr_t uint32_t
-//typedef in_addr_t uint32_t;
-//#include <arpa/inet.h>
-
+#define in_addr_t uint32_t
+#else
+#include <arpa/inet.h>
 #endif
 #include "declspec.h"
-#define in_addr_t uint32_t
+
 /* getdefaultgateway() :
  * return value :
  *    0 : success

@@ -49,6 +49,7 @@ typedef unsigned short uint16_t;
 #else
 #define LIBSPEC
 #include <netinet/in.h>
+#include <arpa/inet.h>
 #endif
 
 typedef struct {
